@@ -1,6 +1,6 @@
 #! /bin/bash
 
-CERT_DIR=/home/sapkyy/certificates
+CERT_DIR=./
 
 if [ ! -f $CERT_DIR/ca_sapkyy_home.key ]; then
   openssl genrsa -out $CERT_DIR/ca_sapkyy_home.key 2048
@@ -8,7 +8,7 @@ if [ ! -f $CERT_DIR/ca_sapkyy_home.key ]; then
 fi
 
 SUBJECT="/C=RU/ST=Udmurt Republic/L=Izhevsk/O=sapkyy/CN=sapkyy.home"
-NUM_OF_DAYS=999
+NUM_OF_DAYS=825
 
 openssl req -new -newkey rsa:2048 -sha256 -nodes -keyout $CERT_DIR/sapkyy.home.key -subj "$SUBJECT" -out $CERT_DIR/sapkyy.home.csr
 
